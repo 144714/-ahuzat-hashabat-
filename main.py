@@ -19,6 +19,9 @@ app.add_middleware(
 async def read_root():
     # השורה הזו שולחת את הקובץ index.html כשנכנסים לכתובת האתר
     return FileResponse('index.html')
+@app.get("/admin")
+async def read_admin():
+    return FileResponse('admin.html')
 
 # --- המודלים והלוגיקה שלך (לא נגענו) ---
 class Booking(BaseModel):
