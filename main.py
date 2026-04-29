@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List, Optional
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse  # הוספנו כדי להציג את האתר
+import os
 
 app = FastAPI()
 
@@ -12,6 +14,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# --- דף הבית של האתר ---
+@app.get("/")
+async def read_root():
+    # השורה הזו שולחת את הקובץ index.html כשנכנסים לכתובת האתר
+    return FileResponse('index.html')
+
+# --- המודלים והלוגיקה שלך (לא נגענו) ---
 class Booking(BaseModel):
     id: Optional[int] = None
     customer_name: str
