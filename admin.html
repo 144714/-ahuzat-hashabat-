@@ -162,7 +162,7 @@
         }
 
         async function loadBookings() {
-            const res = await fetch('http://bookings/');
+            const res = await fetch('/bookings/');
             allBookings = await res.json();
             const table = document.getElementById('bookings-table');
             table.innerHTML = ""; calendar.removeAllEvents();
@@ -208,7 +208,7 @@
                 check_in: document.getElementById('edit-in').value,
                 check_out: document.getElementById('edit-out').value
             };
-            await fetch(`http://127.0.0.1:8000/bookings/${currentEditId}`, {
+            await fetch(`/bookings/${currentEditId}`, {
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(updated)
