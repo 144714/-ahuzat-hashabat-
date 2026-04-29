@@ -17,9 +17,9 @@
         #calendar { background: #1a1a1a; padding: 15px; border-radius: 15px; border: 1px solid #333; }
         .fc-theme-standard td, .fc-theme-standard th { border: 1px solid #333 !important; }
         .fc-day-other { opacity: 1 !important; background-color: #1a1a1a !important; }
-        .fc-daygrid-day-top { flex-direction: row-reverse !important; justify-content: space-between; padding: 10px !important; }
+        .fc-daygrid-day-top { flex-direction: row-reverse !important; justify-content: space-between; padding: 10px !important; align-items: center; }
         
-        .heb-date { color: #d4af37; font-weight: bold; font-size: 1rem; }
+        .heb-date { color: #d4af37; font-weight: bold; font-size: 0.9rem; }
         .eng-date { color: #666; font-size: 0.8rem; }
         
         .fc-event { 
@@ -29,13 +29,14 @@
             padding: 4px 8px !important; 
             border-radius: 6px !important; 
             font-weight: 700 !important;
-            font-size: 0.9rem !important;
+            font-size: 0.85rem !important;
         }
 
         @media print {
             .no-print { display: none !important; }
-            #print-area { display: block !important; color: black !important; background: white !important; padding: 40px; font-family: 'Assistant', sans-serif; }
+            #print-area { display: block !important; color: black !important; background: white !important; padding: 40px; font-family: 'Assistant', sans-serif; height: auto; }
             .rules-box { border: 2px solid #000; padding: 20px; margin-top: 20px; text-align: right; }
+            body { background: white !important; }
         }
     </style>
 </head>
@@ -43,28 +44,27 @@
 
     <div id="print-area" class="hidden">
         <div style="text-align: center; border-bottom: 3px solid #d4af37; padding-bottom: 20px; margin-bottom: 30px;">
-            <h1 style="font-size: 2.8rem; margin-bottom: 5px;" class="font-royal">אישור הזמנה רשמי - אחוזת השבת</h1>
-            <p style="font-size: 1.2rem;">רחוב רבי עקיבא, אלעד | טלפון: 050-4114455</p>
+            <h1 style="font-size: 2.8rem; margin-bottom: 5px; color: black;" class="font-royal">אישור הזמנה רשמי - אחוזת השבת</h1>
+            <p style="font-size: 1.2rem; color: black;">רחוב רבי עקיבא, אלעד | טלפון: 050-4114455</p>
         </div>
         
-        <div style="font-size: 1.4rem; margin-bottom: 40px; text-align: right;">
+        <div style="font-size: 1.4rem; margin-bottom: 40px; text-align: right; color: black;">
             <p><strong>לכבוד המזמין:</strong> <span id="p-name"></span></p>
             <p><strong>תאריך כניסה:</strong> <span id="p-in"></span> (החל מ-14:00)</p>
             <p><strong>תאריך יציאה:</strong> <span id="p-out"></span> (עד 11:00 / צאת השבת)</p>
         </div>
 
-        <div class="rules-box" dir="rtl">
+        <div class="rules-box" dir="rtl" style="color: black;">
             <h2 style="text-decoration: underline; font-size: 1.5rem; margin-bottom: 15px;">תקנון וכללי האירוח באחוזה:</h2>
             <ul style="font-size: 1.1rem; line-height: 1.8; list-style-type: disc; padding-right: 20px;">
-                <li><strong>שמירת שבת:</strong> המקום מיועד למשפחות שומרות תורה ומצוות. אין להדליק אש, לעשן או להשתמש במכשירים אלקטרוניים בשבת בשטחים המשותפים.</li>
-                <li><strong>מוזיקה ורעש:</strong> חל איסור מוחלט על הפעלת מוזיקה בחצר המבנה. יש להקפיד על שקט מוחלט בין 14:00-16:00 ובין 23:00-07:00.</li>
-                <li><strong>עישון:</strong> העישון בתוך הסוויטות והמבנה אסור בהחלט! ניתן לעשן בחצר בלבד במקומות המיועדים לכך.</li>
-                <li><strong>כשרות:</strong> המטבחים מאובזרים בכשרות מהדרין. נא להקפיד על הפרדה מוחלטת בין בשר לחלב.</li>
-                <li><strong>אורחים נוספים:</strong> אין להכניס אורחים מעבר למספר האנשים שנקבע מראש ללא אישור בכתב מישראל.</li>
-                <li><strong>נזקים:</strong> המזמין אחראי על שלמות הציוד והריהוט. כל נזק יחויב בעלות התיקון/החלפה.</li>
+                <li><strong>שמירת שבת:</strong> המקום מיועד למשפחות שומרות תורה ומצוות.</li>
+                <li><strong>מוזיקה ורעש:</strong> חל איסור מוחלט על הפעלת מוזיקה בחצר המבנה.</li>
+                <li><strong>עישון:</strong> העישון בתוך הסוויטות אסור בהחלט!</li>
+                <li><strong>כשרות:</strong> המטבח בכשרות מהדרין - נא להקפיד על הפרדה.</li>
+                <li><strong>נזקים:</strong> המזמין אחראי על שלמות הציוד והריהוט.</li>
             </ul>
         </div>
-        <p style="text-align: center; margin-top: 50px; font-weight: bold; font-size: 1.3rem;">"שבת שלום ומנוחה, מחכים לארח אתכם!"</p>
+        <p style="text-align: center; margin-top: 50px; font-weight: bold; font-size: 1.3rem; color: black;">"שבת שלום ומנוחה, מחכים לארח אתכם!"</p>
     </div>
 
     <div id="login-overlay" class="fixed inset-0 bg-black z-[200] flex items-center justify-center no-print">
@@ -121,15 +121,8 @@
         let calendar;
 
         function numberToHebrewLetter(n) {
-            const letters = {1:'א',2:'ב',3:'ג',4:'ד',5:'ה',6:'ו',7:'ז',8:'ח',9:'ט',10:'י',20:'כ',30:'ל'};
-            if (n <= 10) return letters[n] + '\'';
-            if (n === 15) return 'ט"ו';
-            if (n === 16) return 'ט"ז';
-            if (n < 20) return 'י' + letters[n-10];
-            if (n === 20) return 'כ\'';
-            if (n < 30) return 'כ' + letters[n-20];
-            if (n === 30) return 'ל\'';
-            return n;
+            const letters = {1:'א',2:'ב',3:'ג',4:'ד',5:'ה',6:'ו',7:'ז',8:'ח',9:'ט',10:'י',11:'י"א',12:'י"ב',13:'י"ג',14:'י"ד',15:'ט"ו',16:'ט"ז',17:'י"ז',18:'י"ח',19:'י"ט',20:'כ\'',21:'כ"א',22:'כ"ב',23:'כ"ג',24:'כ"ד',25:'כ"ה',26:'כ"ז',27:'כ"ז',28:'כ"ח',29:'כ"ט',30:'ל\''};
+            return letters[n] || n;
         }
 
         function checkPassword() {
@@ -155,7 +148,10 @@
                     const dayNum = parseInt(hebParts.find(p => p.type === 'day').value);
                     const monthName = hebParts.find(p => p.type === 'month').value;
                     const container = info.el.querySelector('.fc-daygrid-day-top');
-                    container.innerHTML = `<span class="eng-date">${info.date.getDate()}</span><span class="heb-date">${numberToHebrewLetter(dayNum)} ${monthName}</span>`;
+                    container.innerHTML = `
+                        <span class="heb-date">${numberToHebrewLetter(dayNum)} ${monthName}</span>
+                        <span class="eng-date">${info.date.getDate()}</span>
+                    `;
                 }
             });
             calendar.render();
@@ -168,7 +164,7 @@
             table.innerHTML = ""; calendar.removeAllEvents();
             allBookings.forEach(b => {
                 if(b.status === "אושר") {
-                    calendar.addEvent({ title: `${b.customer_name} | ${b.customer_phone}`, start: b.check_in, end: b.check_out });
+                    calendar.addEvent({ title: `${b.customer_name}`, start: b.check_in, end: b.check_out });
                 }
                 const approved = b.status === "אושר";
                 table.innerHTML += `
@@ -209,7 +205,7 @@
                 check_out: document.getElementById('edit-out').value
             };
             await fetch(`/bookings/${currentEditId}`, {
-                method: 'PUT',
+                method: 'PATCH', // שימוש ב-PATCH לעדכון חלקי
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(updated)
             });
@@ -217,15 +213,32 @@
         }
 
         function closeEdit() { document.getElementById('edit-modal').classList.add('hidden'); }
+        
         function printOrder(id) {
             const b = allBookings.find(x => x.id === id);
+            if(!b) return;
             document.getElementById('p-name').innerText = b.customer_name;
             document.getElementById('p-in').innerText = b.check_in;
             document.getElementById('p-out').innerText = b.check_out;
+            
+            // הצגת אזור ההדפסה זמנית לצורך הפעולה
+            const printArea = document.getElementById('print-area');
+            printArea.classList.remove('hidden');
             window.print();
+            printArea.classList.add('hidden');
         }
-        async function updateStatus(id, s) { await fetch(`http:/bookings/${id}?status=${s}`, {method:'PATCH'}); loadBookings(); }
-        async function deleteBooking(id) { if(confirm("למחוק?")) { await fetch(`/bookings/${id}`, {method:'DELETE'}); loadBookings(); } }
+
+        async function updateStatus(id, s) { 
+            await fetch(`/bookings/${id}?status=${encodeURIComponent(s)}`, {method:'PATCH'}); 
+            loadBookings(); 
+        }
+
+        async function deleteBooking(id) { 
+            if(confirm("למחוק הזמנה זו לצמיתות?")) { 
+                await fetch(`/bookings/${id}`, {method:'DELETE'}); 
+                loadBookings(); 
+            } 
+        }
     </script>
 </body>
 </html>
