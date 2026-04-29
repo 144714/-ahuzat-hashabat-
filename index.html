@@ -215,12 +215,12 @@
                 return;
             }
             try {
-                status.innerText = "מעבד בקשה...";
-                const res = await fetch('http://127.0.0.1:8000/bookings/', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
+              status.innerText = "מעבד בקשה...";
+const res = await fetch('/bookings/', { // התיקון כאן: נתיב יחסי שעובד בכל מקום
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+});
                 if (res.ok) {
                     status.innerText = "הבקשה נשלחה! ישראל יחזור אליכם בהקדם.";
                     status.className = "text-green-600";
