@@ -162,7 +162,7 @@
         }
 
         async function loadBookings() {
-            const res = await fetch('http://127.0.0.1:8000/bookings/');
+            const res = await fetch('http://bookings/');
             allBookings = await res.json();
             const table = document.getElementById('bookings-table');
             table.innerHTML = ""; calendar.removeAllEvents();
@@ -224,8 +224,8 @@
             document.getElementById('p-out').innerText = b.check_out;
             window.print();
         }
-        async function updateStatus(id, s) { await fetch(`http://127.0.0.1:8000/bookings/${id}?status=${s}`, {method:'PATCH'}); loadBookings(); }
-        async function deleteBooking(id) { if(confirm("למחוק?")) { await fetch(`http://127.0.0.1:8000/bookings/${id}`, {method:'DELETE'}); loadBookings(); } }
+        async function updateStatus(id, s) { await fetch(`http:/bookings/${id}?status=${s}`, {method:'PATCH'}); loadBookings(); }
+        async function deleteBooking(id) { if(confirm("למחוק?")) { await fetch(`/bookings/${id}`, {method:'DELETE'}); loadBookings(); } }
     </script>
 </body>
 </html>
