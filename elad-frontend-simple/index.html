@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אחוזת השבת אלעד | אירוח יוקרה לשבתות ואירועים</title>
+<meta name="description" content="מחפשים וילה לשבת באלעד? אחוזת השבת מציעה חווית אירוח מלכותית, סוויטות מפוארות ואווירה רוחנית בלב אלעד. הזמינו עכשיו לשבת הקרובה.">
+<meta name="keywords" content="אחוזת השבת, צימר באלעד, וילה לשבת אלעד, אירוח באלעד, ישראל קטנוב, נופש דתי, שבת באלעד">
+    <title>אחוזת השבת אלעד | חוויה מלכותית ושלווה</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #d4af37; --dark: #0f0f0f; }
+        
+        /* גלילה מעוצבת וחשופה */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #1a1a1a; }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 5px; border: 2px solid #1a1a1a; }
+
+        body { font-family: 'Assistant', sans-serif; background-color: #fdfcf9; scroll-behavior: smooth; overflow-x: hidden; }
+        .font-royal { font-family: 'Cinzel', serif; }
+        
+        /* אפקטים לתמונות */
+        .img-container { overflow: hidden; position: relative; }
+        .img-container img { transition: transform 1.2s cubic-bezier(0.15, 0, 0.15, 1); }
+        .img-container:hover img { transform: scale(1.1); }
+        
+        .gold-border { border: 1px solid rgba(212, 175, 55, 0.3); }
+        .gold-gradient { background: linear-gradient(135deg, #d4af37 0%, #f9e29b 50%, #b8860b 100%); }
+        
+        /* כפתורי ציפה */
+        .floating-btn { transition: all 0.3s ease; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        .floating-btn:hover { transform: translateY(-5px) scale(1.05); }
+
+        .hero-zoom { animation: zoomIn 20s infinite alternate; }
+        @keyframes zoomIn { from { transform: scale(1); } to { transform: scale(1.15); } }
+
+        /* מחלקות נגישות */
+        .high-contrast { filter: contrast(150%) brightness(110%); background: white !important; }
+        .large-text { font-size: 1.25rem !important; }
+    </style>
+</head>
+<body class="text-stone-900">
+
+    <a href="https://wa.me/972504114455" target="_blank" aria-label="צ'אט עם ישראל בוואטסאפ" class="fixed bottom-8 left-8 z-[100] floating-btn">
+        <div class="bg-green-500 text-white p-5 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.29-4.143c1.565.933 3.176 1.423 4.842 1.425 5.403 0 9.803-4.392 9.805-9.795.001-2.618-1.02-5.08-2.875-6.934s-4.314-2.875-6.931-2.875c-5.404 0-9.804 4.394-9.806 9.797 0 2.067.635 4.036 1.837 5.7l-.177.647-.433 1.58 1.574-.413.63-.165z"/></svg>
+        </div>
+    </a>
+
+    <button onclick="openAccessibility()" aria-label="תפריט נגישות" class="fixed bottom-8 right-8 z-[100] floating-btn bg-blue-600 text-white p-5 rounded-full flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M10 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm4.5 3a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0zM11.5 13c-.147 0-.294-.033-.428-.099L8 11.2 4.928 12.9a.751.751 0 1 1-.741-1.3l3.313-1.892L7.5 7.21l-3.313-1.89a.75.75 0 1 1 .741-1.302L8 5.9l3.072-1.882a.75.75 0 1 1 .741 1.302L8.5 7.21l-.015 2.5 3.313 1.892a.75.75 0 0 1-.3 1.398H11.5z"/>
+        </svg>
+    </button>
+
+    <nav class="absolute w-full z-50 p-8 flex justify-between items-center bg-gradient-to-b from-black/60 to-transparent">
+        <div class="text-3xl font-royal text-white tracking-widest uppercase">אחוזת השבת</div>
+        <div class="hidden md:flex gap-12 text-white text-xs tracking-[0.3em] font-bold">
+            <a href="#about" class="hover:text-amber-400 transition">מי אנחנו</a>
+            <a href="#gallery" class="hover:text-amber-400 transition">גלריה</a>
+            <a href="#booking" class="hover:text-amber-400 transition">הזמנות</a>
+        </div>
+        <a href="tel:0504114455" class="gold-gradient px-8 py-3 rounded-sm text-xs font-bold text-black hover:scale-105 transition">050-4114455</a>
+    </nav>
+
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070" class="absolute inset-0 w-full h-full object-cover hero-zoom" alt="נוף האחוזה">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative text-center z-10 space-y-8 px-4">
+            <h1 class="text-white text-7xl md:text-[120px] font-royal leading-none">אחוזת השבת</h1>
+            <p class="text-amber-200 text-xl md:text-3xl font-light tracking-[10px] uppercase">אירוח יוקרה בלב אלעד</p>
+        </div>
+    </header>
+
+    <section id="about" class="py-32 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-20">
+            <div class="md:w-1/2 space-y-8 text-right">
+                <span class="text-amber-600 font-bold tracking-[5px] text-sm italic">חוויה אקסקלוסיבית</span>
+                <h2 class="text-5xl font-royal">כשיוקרה פוגשת מסורת</h2>
+                <p class="text-xl text-stone-500 leading-relaxed font-light italic">בלב העיר אלעד, הקמנו עבורכם מקדש של שלווה. אחוזת השבת מציעה חוויית אירוח מעולם אחר, שבה כל פרט נבחר בפינצטה כדי להעניק לכם שבת של התעלות ורוגע.</p>
+                <div class="pt-8 border-t border-stone-200">
+                    <p class="text-stone-800 font-bold">ישראל קטנוב - המארח שלכם</p>
+                    <p class="text-stone-400">זמין לכל בקשה ודרישה לאורך כל השהות</p>
+                </div>
+            </div>
+            <div class="md:w-1/2 grid grid-cols-2 gap-4">
+                <div class="img-container rounded-tl-[100px] rounded-br-[100px] shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=600" alt="סוויטת הורים מפוארת">
+                </div>
+                <div class="img-container rounded-tr-[100px] rounded-bl-[100px] shadow-2xl mt-12">
+                    <img src="https://images.unsplash.com/photo-1590912200109-17013d31754f?w=600" alt="עיצוב פנים יוקרתי">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-24 bg-stone-900">
+        <div class="max-w-7xl mx-auto mb-12 text-center text-white">
+            <h2 class="text-4xl font-royal">סיור ויזואלי באחוזה</h2>
+            <div class="w-20 h-1 gold-gradient mx-auto mt-4"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
+            <div class="img-container rounded-lg gold-border"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600" alt="סלון מרווח"></div>
+            <div class="img-container rounded-lg gold-border"><img src="https://images.unsplash.com/photo-1584622781564-1d987f7333c1?w=600" alt="חדר רחצה"></div>
+            <div class="img-container rounded-lg gold-border"><img src="https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?w=600" alt="פינת אוכל לשבת"></div>
+            <div class="img-container rounded-lg gold-border"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600" alt="מיטה מפנקת"></div>
+            <div class="img-container rounded-lg gold-border"><img src="https://images.unsplash.com/photo-1600566752355-35792bedbbba?w=600" alt="מטבח מאובזר"></div>
+            <div class="img-container rounded-lg gold-border"><img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=600" alt="מרפסת נוף"></div>
+            <div class="img-container rounded-lg gold-border"><img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=600" alt="תאורת אווירה"></div>
+            <div class="img-container rounded-lg gold-border"><img src="https://images.unsplash.com/photo-1600585154542-6379b174704e?w=600" alt="חצר האחוזה"></div>
+            <div class="img-container rounded-lg gold-border"><img src="https://images.unsplash.com/photo-1600570994732-263223126f95?w=600" alt="עיצוב מודרני"></div>
+            <div class="img-container rounded-lg gold-border"><img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600" alt="אדריכלות חוץ"></div>
+            <div class="img-container rounded-lg gold-border"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600" alt="חלל אירוח"></div>
+            <div class="img-container rounded-lg gold-border"><img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=600" alt="שיש ועיצוב"></div>
+            <div class="img-container rounded-lg gold-border"><img src="https://images.unsplash.com/photo-1600585154340-be6199f7d009?w=600" alt="כניסה לאחוזה"></div>
+            <div class="img-container rounded-lg gold-border"><img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=600" alt="פינת ישיבה"></div>
+            <div class="img-container rounded-lg gold-border"><img src="https://images.unsplash.com/photo-1600607687644-c7171bb3e29b?w=600" alt="נוף מאלעד"></div>
+            <div class="img-container rounded-lg gold-border"><img src="https://images.unsplash.com/photo-1551133990-7ccc2345118b?w=600" alt="ארונות יוקרה"></div>
+            <div class="img-container rounded-lg gold-border"><img src="https://images.unsplash.com/photo-1560448204-61dc36dc98c8?w=600" alt="חדר שינה לילדים"></div>
+            <div class="img-container rounded-lg gold-border"><img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=600" alt="סדיני כותנה"></div>
+            <div class="img-container rounded-lg gold-border"><img src="https://images.unsplash.com/photo-1560185893-a55caf0a52f9?w=600" alt="קישוטים ונוי"></div>
+            <div class="img-container rounded-lg gold-border"><img src="https://images.unsplash.com/photo-1502005075163-d24bef91cbac?w=600" alt="מבט כללי"></div>
+        </div>
+    </section>
+
+    <section id="booking" class="py-32 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-royal mb-16">בקשת הזמנה</h2>
+            <form id="bookingForm" class="grid grid-cols-1 md:grid-cols-2 gap-8 text-right">
+                <div class="space-y-2">
+                    <label class="text-xs font-bold uppercase tracking-widest text-stone-400">שם המזמין</label>
+                    <input type="text" id="customer_name" required class="w-full border-b-2 border-stone-200 focus:border-amber-500 py-3 outline-none">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs font-bold uppercase tracking-widest text-stone-400">טלפון ליצירת קשר</label>
+                    <input type="tel" id="customer_phone" required class="w-full border-b-2 border-stone-200 focus:border-amber-500 py-3 outline-none">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs font-bold uppercase tracking-widest text-stone-400">תאריך כניסה</label>
+                    <input type="date" id="check_in" required class="w-full border-b-2 border-stone-200 focus:border-amber-500 py-3 outline-none">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs font-bold uppercase tracking-widest text-stone-400">תאריך יציאה</label>
+                    <input type="date" id="check_out" required class="w-full border-b-2 border-stone-200 focus:border-amber-500 py-3 outline-none">
+                </div>
+                <div class="md:col-span-2 space-y-2">
+                    <label class="text-xs font-bold uppercase tracking-widest text-stone-400">בקשות מיוחדות (כשרות, מיטות תינוק וכד')</label>
+                    <textarea id="notes" class="w-full border-b-2 border-stone-200 focus:border-amber-500 py-3 outline-none h-24"></textarea>
+                </div>
+                <div class="md:col-span-2 mt-8">
+                    <p id="status" class="mb-4 font-bold"></p>
+                    <button type="button" onclick="sendBooking()" class="gold-gradient w-full py-6 text-black font-black text-xl rounded-full shadow-2xl hover:brightness-110 transition uppercase tracking-widest">שלח בקשת הצעה לישראל</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <div id="accModal" class="fixed inset-0 bg-black/95 z-[200] hidden items-center justify-center p-6" role="dialog" aria-labelledby="accTitle">
+        <div class="bg-white p-12 rounded-2xl max-w-2xl w-full relative">
+            <button onclick="closeAccessibility()" class="absolute left-8 top-8 text-2xl" aria-label="סגור תפריט">✕</button>
+            <h2 id="accTitle" class="text-3xl font-royal mb-6 text-center">הצהרת נגישות</h2>
+            <div class="space-y-6 text-stone-600 leading-relaxed text-right">
+                <p>אנו ב'אחוזת השבת' רואים חשיבות עליונה בהנגשת שירותינו לאנשים עם מוגבלויות. האתר עומד בתקן הישראלי (ת"י 5568).</p>
+                <div class="flex flex-col gap-4">
+                    <button onclick="document.body.classList.toggle('high-contrast')" class="bg-stone-900 text-white px-6 py-3 rounded-lg font-bold">הפעל/בטל ניגודיות גבוהה</button>
+                    <button onclick="document.body.classList.toggle('large-text')" class="bg-stone-900 text-white px-6 py-3 rounded-lg font-bold">הגדל/הקטן טקסט</button>
+                </div>
+                <p><strong>ממונה נגישות:</strong> ישראל קטנוב</p>
+                <p><strong>טלפון לבירורים:</strong> 050-4114455</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-20 bg-stone-100 text-center border-t border-stone-200">
+        <p class="font-royal text-2xl tracking-[10px] opacity-20 mb-8 uppercase text-black italic">אחוזת השבת</p>
+        <p class="text-xs text-stone-400">© 2026 כל הזכויות שמורות לישראל קטנוב. האתר הונגש כחוק.</p>
+    </footer>
+
+    <script>
+        async function sendBooking() {
+            const status = document.getElementById('status');
+            // --- כאן נכנסת הבדיקה החדשה ---
+    const checkInDate = new Date(document.getElementById('check_in').value);
+    const checkOutDate = new Date(document.getElementById('check_out').value);
+
+    let includesShabbat = false;
+    let currentDate = new Date(checkInDate);
+    
+    while (currentDate <= checkOutDate) {
+        const day = currentDate.getDay(); // 5 = שישי, 6 = שבת
+        if (day === 5 || day === 6) {
+            includesShabbat = true;
+            break;
+        }
+        currentDate.setDate(currentDate.getDate() + 1);
+    }
+
+    if (!includesShabbat) {
+        status.innerText = "שימו לב: האירוח באחוזה מיועד לשבתות בלבד. נא לבחור תאריכים הכוללים את סוף השבוע.";
+        status.className = "text-amber-700 font-bold bg-amber-50 p-4 rounded-xl border border-amber-200 mt-4";
+        return; 
+    }
+    // --- סוף הבדיקה ---
+            const data = {
+                customer_name: document.getElementById('customer_name').value,
+                customer_phone: document.getElementById('customer_phone').value,
+                check_in: document.getElementById('check_in').value,
+                check_out: document.getElementById('check_out').value,
+                notes: document.getElementById('notes').value
+            };
+            if(!data.customer_name || !data.customer_phone) {
+                status.innerText = "נא למלא שם וטלפון";
+                status.className = "text-red-600";
+                return;
+            }
+            try {
+                status.innerText = "מעבד בקשה...";
+                const res = await fetch('http://127.0.0.1:8000/bookings/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if (res.ok) {
+                    status.innerText = "הבקשה נשלחה! ישראל יחזור אליכם בהקדם.";
+                    status.className = "text-green-600";
+                    document.getElementById('bookingForm').reset();
+                } else {
+                    status.innerText = "חלה שגיאה בנתונים. וודאו שהתאריכים תקינים.";
+                    status.className = "text-red-600";
+                }
+            } catch (e) {
+                status.innerText = "השרת לא מגיב. וודאו שתוכנת הניהול רצה.";
+                status.className = "text-red-600";
+            }
+        }
+
+        function openAccessibility() { document.getElementById('accModal').style.display = 'flex'; }
+        function closeAccessibility() { document.getElementById('accModal').style.display = 'none'; }
+    </script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניהול אחוזת השבת | לוח שנה יהודי מלא</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Assistant', sans-serif; background-color: #0d0d0d; color: white; }
+        .font-royal { font-family: 'Cinzel', serif; }
+        .gold-border { border: 1px solid #d4af37; }
+        .gold-text { color: #d4af37; }
+        .gold-bg { background: linear-gradient(135deg, #d4af37 0%, #f9e29b 100%); color: black; }
+        
+        #calendar { background: #1a1a1a; padding: 15px; border-radius: 15px; border: 1px solid #333; }
+        .fc-theme-standard td, .fc-theme-standard th { border: 1px solid #333 !important; }
+        .fc-day-other { opacity: 1 !important; background-color: #1a1a1a !important; }
+        .fc-daygrid-day-top { flex-direction: row-reverse !important; justify-content: space-between; padding: 10px !important; }
+        
+        .heb-date { color: #d4af37; font-weight: bold; font-size: 1rem; }
+        .eng-date { color: #666; font-size: 0.8rem; }
+        
+        .fc-event { 
+            background: #d4af37 !important; 
+            color: black !important; 
+            border: none !important; 
+            padding: 4px 8px !important; 
+            border-radius: 6px !important; 
+            font-weight: 700 !important;
+            font-size: 0.9rem !important;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            #print-area { display: block !important; color: black !important; background: white !important; padding: 40px; font-family: 'Assistant', sans-serif; }
+            .rules-box { border: 2px solid #000; padding: 20px; margin-top: 20px; text-align: right; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div id="print-area" class="hidden">
+        <div style="text-align: center; border-bottom: 3px solid #d4af37; padding-bottom: 20px; margin-bottom: 30px;">
+            <h1 style="font-size: 2.8rem; margin-bottom: 5px;" class="font-royal">אישור הזמנה רשמי - אחוזת השבת</h1>
+            <p style="font-size: 1.2rem;">רחוב רבי עקיבא, אלעד | טלפון: 050-4114455</p>
+        </div>
+        
+        <div style="font-size: 1.4rem; margin-bottom: 40px; text-align: right;">
+            <p><strong>לכבוד המזמין:</strong> <span id="p-name"></span></p>
+            <p><strong>תאריך כניסה:</strong> <span id="p-in"></span> (החל מ-14:00)</p>
+            <p><strong>תאריך יציאה:</strong> <span id="p-out"></span> (עד 11:00 / צאת השבת)</p>
+        </div>
+
+        <div class="rules-box" dir="rtl">
+            <h2 style="text-decoration: underline; font-size: 1.5rem; margin-bottom: 15px;">תקנון וכללי האירוח באחוזה:</h2>
+            <ul style="font-size: 1.1rem; line-height: 1.8; list-style-type: disc; padding-right: 20px;">
+                <li><strong>שמירת שבת:</strong> המקום מיועד למשפחות שומרות תורה ומצוות. אין להדליק אש, לעשן או להשתמש במכשירים אלקטרוניים בשבת בשטחים המשותפים.</li>
+                <li><strong>מוזיקה ורעש:</strong> חל איסור מוחלט על הפעלת מוזיקה בחצר המבנה. יש להקפיד על שקט מוחלט בין 14:00-16:00 ובין 23:00-07:00.</li>
+                <li><strong>עישון:</strong> העישון בתוך הסוויטות והמבנה אסור בהחלט! ניתן לעשן בחצר בלבד במקומות המיועדים לכך.</li>
+                <li><strong>כשרות:</strong> המטבחים מאובזרים בכשרות מהדרין. נא להקפיד על הפרדה מוחלטת בין בשר לחלב.</li>
+                <li><strong>אורחים נוספים:</strong> אין להכניס אורחים מעבר למספר האנשים שנקבע מראש ללא אישור בכתב מישראל.</li>
+                <li><strong>נזקים:</strong> המזמין אחראי על שלמות הציוד והריהוט. כל נזק יחויב בעלות התיקון/החלפה.</li>
+            </ul>
+        </div>
+        <p style="text-align: center; margin-top: 50px; font-weight: bold; font-size: 1.3rem;">"שבת שלום ומנוחה, מחכים לארח אתכם!"</p>
+    </div>
+
+    <div id="login-overlay" class="fixed inset-0 bg-black z-[200] flex items-center justify-center no-print">
+        <div class="text-center space-y-6 p-8 bg-stone-900 rounded-2xl gold-border shadow-2xl">
+            <h2 class="font-royal text-2xl gold-text uppercase">כניסת מנהל</h2>
+            <input type="password" id="admin-pass" placeholder="הזן סיסמה" class="block w-full p-3 rounded bg-black border border-stone-700 text-center outline-none">
+            <button onclick="checkPassword()" class="gold-bg px-8 py-2 rounded-full font-bold w-full">כניסה</button>
+        </div>
+    </div>
+
+    <div id="admin-content" class="hidden max-w-6xl mx-auto no-print">
+        <header class="flex justify-between items-center mb-8 border-b border-stone-800 pb-6">
+            <h1 class="text-3xl font-royal gold-text uppercase">ניהול אחוזת השבת</h1>
+            <div class="flex gap-2">
+                <button onclick="switchView('table')" id="btn-table" class="gold-bg px-6 py-2 rounded-lg font-bold text-sm">רשימת הזמנות</button>
+                <button onclick="switchView('calendar')" id="btn-calendar" class="px-6 py-2 rounded-lg font-bold text-sm text-stone-400">יומן עברי-לועזי</button>
+            </div>
+        </header>
+
+        <div id="table-view" class="overflow-x-auto rounded-2xl gold-border shadow-2xl overflow-hidden">
+            <table class="w-full text-right bg-stone-900">
+                <thead class="gold-bg text-black">
+                    <tr><th class="p-4">מזמין</th><th class="p-4">תאריכים</th><th class="p-4">סטטוס</th><th class="p-4 text-center">פעולות</th></tr>
+                </thead>
+                <tbody id="bookings-table"></tbody>
+            </table>
+        </div>
+
+        <div id="calendar-view" class="hidden">
+            <div id="calendar"></div>
+        </div>
+    </div>
+
+    <div id="edit-modal" class="hidden fixed inset-0 bg-black/95 z-[300] flex items-center justify-center p-4">
+        <div class="bg-stone-900 p-8 rounded-2xl gold-border w-full max-w-md">
+            <h2 class="gold-text text-xl font-bold mb-4 text-center">עריכת פרטי הזמנה</h2>
+            <div class="space-y-4">
+                <input id="edit-name" type="text" class="w-full p-3 bg-black border border-stone-700 rounded text-white" placeholder="שם המזמין">
+                <input id="edit-phone" type="text" class="w-full p-3 bg-black border border-stone-700 rounded text-white" placeholder="טלפון">
+                <div class="flex gap-2 text-xs">
+                    <input id="edit-in" type="date" class="w-1/2 p-3 bg-black border border-stone-700 rounded text-white">
+                    <input id="edit-out" type="date" class="w-1/2 p-3 bg-black border border-stone-700 rounded text-white">
+                </div>
+                <button onclick="saveEdit()" class="gold-bg w-full py-3 font-bold rounded-lg mt-2">שמור שינויים</button>
+                <button onclick="closeEdit()" class="w-full py-2 text-stone-500">ביטול</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const MASTER_PASS = "Israel2026";
+        let allBookings = [];
+        let currentEditId = null;
+        let calendar;
+
+        function numberToHebrewLetter(n) {
+            const letters = {1:'א',2:'ב',3:'ג',4:'ד',5:'ה',6:'ו',7:'ז',8:'ח',9:'ט',10:'י',20:'כ',30:'ל'};
+            if (n <= 10) return letters[n] + '\'';
+            if (n === 15) return 'ט"ו';
+            if (n === 16) return 'ט"ז';
+            if (n < 20) return 'י' + letters[n-10];
+            if (n === 20) return 'כ\'';
+            if (n < 30) return 'כ' + letters[n-20];
+            if (n === 30) return 'ל\'';
+            return n;
+        }
+
+        function checkPassword() {
+            if(document.getElementById('admin-pass').value === MASTER_PASS) {
+                document.getElementById('login-overlay').style.display = 'none';
+                document.getElementById('admin-content').classList.remove('hidden');
+                initCalendar(); loadBookings();
+            } else { alert("סיסמה שגויה"); }
+        }
+
+        function switchView(v) {
+            const isT = v === 'table';
+            document.getElementById('table-view').classList.toggle('hidden', !isT);
+            document.getElementById('calendar-view').classList.toggle('hidden', isT);
+            if(!isT) setTimeout(() => { calendar.render(); }, 50);
+        }
+
+        function initCalendar() {
+            calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
+                locale: 'he', direction: 'rtl', initialView: 'dayGridMonth',
+                dayCellDidMount: (info) => {
+                    const hebParts = new Intl.DateTimeFormat('he-u-ca-hebrew', {day: 'numeric', month: 'long'}).formatToParts(info.date);
+                    const dayNum = parseInt(hebParts.find(p => p.type === 'day').value);
+                    const monthName = hebParts.find(p => p.type === 'month').value;
+                    const container = info.el.querySelector('.fc-daygrid-day-top');
+                    container.innerHTML = `<span class="eng-date">${info.date.getDate()}</span><span class="heb-date">${numberToHebrewLetter(dayNum)} ${monthName}</span>`;
+                }
+            });
+            calendar.render();
+        }
+
+        async function loadBookings() {
+            const res = await fetch('http://127.0.0.1:8000/bookings/');
+            allBookings = await res.json();
+            const table = document.getElementById('bookings-table');
+            table.innerHTML = ""; calendar.removeAllEvents();
+            allBookings.forEach(b => {
+                if(b.status === "אושר") {
+                    calendar.addEvent({ title: `${b.customer_name} | ${b.customer_phone}`, start: b.check_in, end: b.check_out });
+                }
+                const approved = b.status === "אושר";
+                table.innerHTML += `
+                    <tr class="border-b border-stone-800">
+                        <td class="p-4"><span class="gold-text font-bold">${b.customer_name}</span><br><span class="text-xs opacity-50">${b.customer_phone}</span></td>
+                        <td class="p-4 text-xs">${b.check_in} ➔ ${b.check_out}</td>
+                        <td class="p-4 text-xs">
+                            <select onchange="updateStatus(${b.id}, this.value)" class="bg-black border border-stone-700 rounded p-1">
+                                <option value="חדש" ${b.status==='חדש'?'selected':''}>חדש</option>
+                                <option value="שולם מקדמה" ${b.status==='שולם מקדמה'?'selected':''}>שולם מקדמה</option>
+                                <option value="אושר" ${b.status==='אושר'?'selected':''}>אושר ✅</option>
+                            </select>
+                        </td>
+                        <td class="p-4 flex justify-center gap-2">
+                            <button onclick="openEdit(${b.id})" class="bg-stone-700 px-3 py-1 rounded text-xs">📝 ערוך</button>
+                            <button onclick="${approved ? `printOrder(${b.id})` : `alert('אשר תחילה')`}" class="${approved ? 'bg-blue-600' : 'bg-blue-900 opacity-30'} px-3 py-1 rounded text-xs">🖨️ הדפס</button>
+                            <button onclick="deleteBooking(${b.id})" class="bg-red-900/50 text-red-200 px-3 py-1 rounded text-xs">🗑️ מחק</button>
+                        </td>
+                    </tr>`;
+            });
+        }
+
+        function openEdit(id) {
+            const b = allBookings.find(x => x.id === id);
+            currentEditId = id;
+            document.getElementById('edit-name').value = b.customer_name;
+            document.getElementById('edit-phone').value = b.customer_phone;
+            document.getElementById('edit-in').value = b.check_in;
+            document.getElementById('edit-out').value = b.check_out;
+            document.getElementById('edit-modal').classList.remove('hidden');
+        }
+
+        async function saveEdit() {
+            const updated = {
+                customer_name: document.getElementById('edit-name').value,
+                customer_phone: document.getElementById('edit-phone').value,
+                check_in: document.getElementById('edit-in').value,
+                check_out: document.getElementById('edit-out').value
+            };
+            await fetch(`http://127.0.0.1:8000/bookings/${currentEditId}`, {
+                method: 'PUT',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(updated)
+            });
+            closeEdit(); loadBookings();
+        }
+
+        function closeEdit() { document.getElementById('edit-modal').classList.add('hidden'); }
+        function printOrder(id) {
+            const b = allBookings.find(x => x.id === id);
+            document.getElementById('p-name').innerText = b.customer_name;
+            document.getElementById('p-in').innerText = b.check_in;
+            document.getElementById('p-out').innerText = b.check_out;
+            window.print();
+        }
+        async function updateStatus(id, s) { await fetch(`http://127.0.0.1:8000/bookings/${id}?status=${s}`, {method:'PATCH'}); loadBookings(); }
+        async function deleteBooking(id) { if(confirm("למחוק?")) { await fetch(`http://127.0.0.1:8000/bookings/${id}`, {method:'DELETE'}); loadBookings(); } }
+    </script>
+</body>
+</html>
